@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { auth } from '../firebase'
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -12,7 +13,7 @@ const Login = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.replace("Home")
+        navigation.replace('Home')
       }
     })
 
@@ -44,6 +45,7 @@ const Login = () => {
       style={styles.container}
       behavior="padding"
     >
+      <LinearGradient colors={['#00b7b8', '#3333d7', '#0db6b4']} style={styles.backgroundGradiant}>
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
@@ -74,6 +76,7 @@ const Login = () => {
           <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
       </View>
+      </LinearGradient>
     </KeyboardAvoidingView>
   )
 }
@@ -125,4 +128,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
+  backgroundGradiant : {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+  }
 })

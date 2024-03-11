@@ -1,18 +1,28 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login';
 import Home from './screens/Home';
+
+const Logo = require('./assets/SneakHubLogo.PNG');
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={Home} />
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerTitleAlign: 'center',}}>
+        <Stack.Screen 
+          name="Login" 
+          component={Login} 
+          options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
+        />
+        <Stack.Screen 
+          name="Home" 
+          component={Home} 
+          options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
