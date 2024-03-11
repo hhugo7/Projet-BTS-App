@@ -1,24 +1,19 @@
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
-import { IconFill, IconOutline } from "@ant-design/icons-react-native";
-import { Icon } from '@rneui/themed';
-import { PieChartOutlined } from '@ant-design/icons';
-import { EuroOutlined } from '@ant-design/icons';
-import { SettingOutlined } from '@ant-design/icons';
+import Test
 
-
-HandleClick = () => {
-  navigation.replace('AddItem')
-}
-
-export default function Home() {
+export default function AddItem() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.logout}>
-          <Text>Log out</Text>
+          <Text>Cancel</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.logout}>
+          <Text>Save</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.dashbord}>Dashboard</Text>
+      <Text style={styles.dashbord}>Add Item</Text>
+      <Image source={require('')} style={{ width: 100, height: 55}} />
       <View style={styles.item}>
         <View style={styles.itemContent}> 
           <PieChartOutlined style={styles.icon} />
@@ -38,7 +33,7 @@ export default function Home() {
           <Text>Delete Items</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.logout}>
-          <Text onPress={HandleClick}>Add Items</Text>
+          <Text>Add Items</Text>
         </TouchableOpacity>
       </View>
       <View>

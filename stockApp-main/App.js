@@ -4,8 +4,9 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './screens/Login';
 import Home from './screens/Home';
+import AddItem from './screens/AddItem';
 
-const Logo = require('./assets/SneakHubLogo.PNG');
+const Logo = './assets/SneakHubLogo.PNG';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default function App() {
         <Stack.Screen 
           name="Home" 
           component={Home} 
+          options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
+        />
+        <Stack.Screen 
+          name="AddItem" 
+          component={AddItem} 
           options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
         />
       </Stack.Navigator>
