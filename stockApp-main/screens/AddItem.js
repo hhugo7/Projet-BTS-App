@@ -1,11 +1,66 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
-import Test
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, FlatList } from 'react-native';
+import { PieChartOutlined } from '@ant-design/icons';
+import { EuroOutlined } from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
+import { useNavigation } from '@react-navigation/core'
+import React, { useState } from 'react';
+import ImagePicker from 'react-native-image-picker';
+const ItemImage = './assets/SneakHubLogo.PNG';
+
 
 export default function AddItem() {
+
+  const navigation = useNavigation();
+  const [image, setImage] = useState(null);
+
+  const HandleNavigate = () => {
+    navigation.replace('Home');
+    console.log('Home');
+  };
+
+  const pickImage = () => {
+    const options = {
+      title: 'Select Image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+  };
+
+  const data = [
+    { id: 1, name: 'Item 1', price: 10.99 },
+    { id: 2, name: 'Item 2', price: 25.50 },
+  ];
+    
+  const Table = () => {
+    const [tableData, setTableData] = useState(data);
+  
+    const renderItem = ({ item }) => (
+      <View style={styles.row}>
+        <Text style={styles.text}>{item.name}</Text>
+        <Text style={styles.text}>${item.price.toFixed(2)}</Text>
+      </View>
+    );
+  
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response:', response);
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.error('ImagePicker Error:', response.error);
+      } else {
+        const source = { uri: response.uri };
+        setImage(source);
+      }
+    });
+  };
+};
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.logout}>
+        <TouchableOpacity onPress={HandleNavigate} style={styles.logout}>
           <Text>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.logout}>
@@ -13,39 +68,76 @@ export default function AddItem() {
         </TouchableOpacity>
       </View>
       <Text style={styles.dashbord}>Add Item</Text>
-      <Image source={require('')} style={{ width: 100, height: 55}} />
+      <TouchableOpacity onPress={pickImage} style={styles.logout}>
+      {image && <Image source={image} style={styles.previewImage} />}
+          <Text>Choose Image</Text>
+        </TouchableOpacity>
+      <View>
+      <TextInput
+          placeholder="Brand"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Name"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Color"
+          style={styles.input}
+        />
+        <View style={styles.contentPrice}>
+        <TextInput
+          placeholder="Price"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Total Price Entry"
+          style={styles.input}
+        />
+        </View>
+      </View>
+      <FlatList
+        data={tableData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
       <View style={styles.item}>
-        <View style={styles.itemContent}> 
-          <PieChartOutlined style={styles.icon} />
-          <Text style={styles.text}>Total Items : </Text>
-        </View>
-        <View style={styles.itemContent}>
-          <EuroOutlined style={styles.icon} />
-          <Text style={styles.text}>Total Value : </Text>
-        </View>
-        <TouchableOpacity style={styles.logout}>
-          <Text>Check Stock</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.logout}>
-          <Text>Edit Items</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.logout}>
-          <Text>Delete Items</Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.logout}>
           <Text>Add Items</Text>
         </TouchableOpacity>
       </View>
-      <View>
-      <TouchableOpacity>
-      <SettingOutlined style={styles.icon} />
-      </TouchableOpacity>
-    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  previewImage: {
+    width: 100,
+    height: 100,
+    resizeMode: 'cover',
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+  contentPrice: {
+    flexDirection: 'row',
+    margin: 10,
+
+  },
+  input: {
+    borderRadius: 6,
+    color: '#3D3D3D',
+    backgroundColor: '#fff',
+    borderWidth: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 0.5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    width: 400,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: 10,
+    margin: 10,
+  },
   container: {
     flex: 1,
   },
