@@ -1,8 +1,5 @@
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, FlatList } from 'react-native';
-import { PieChartOutlined } from '@ant-design/icons';
-import { EuroOutlined } from '@ant-design/icons';
-import { SettingOutlined } from '@ant-design/icons';
-import { useNavigation } from '@react-navigation/core'
+import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
 import ImagePicker from 'react-native-image-picker';
 const ItemImage = './assets/SneakHubLogo.PNG';
@@ -85,7 +82,6 @@ export default function AddItem() {
           placeholder="Color"
           style={styles.input}
         />
-        <View style={styles.contentPrice}>
         <TextInput
           placeholder="Price"
           style={styles.input}
@@ -95,12 +91,6 @@ export default function AddItem() {
           style={styles.input}
         />
         </View>
-      </View>
-      <FlatList
-        data={tableData}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-      />
       <View style={styles.item}>
         <TouchableOpacity style={styles.logout}>
           <Text>Add Items</Text>
@@ -118,11 +108,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 10,
   },
-  contentPrice: {
-    flexDirection: 'row',
-    margin: 10,
-
-  },
   input: {
     borderRadius: 6,
     color: '#3D3D3D',
@@ -132,10 +117,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 0.5 },
     shadowOpacity: 0.1,
     shadowRadius: 1,
-    width: 400,
+    width: 300,
+    padding: 10,
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: 10,
     margin: 10,
   },
   container: {
@@ -162,6 +147,9 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     userSelect: 'none',
     margin: 10,
+    width: 200,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   dashbord: {
     fontSize: 30,
@@ -177,30 +165,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 0.5 },
     shadowOpacity: 0.1,
     shadowRadius: 1,
-    width: 400,
+    width: 250,
+    height: 80,
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: 10,
     margin: 10,
-  },
-  itemContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
-    borderRadius: 6,
-    color: '#3D3D3D',
-    backgroundColor: '#fff',
-    borderWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0.5 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
-    width: 500,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: 10,
-    margin: 10,
-    width: '90%',
   },
   icon: {
     fontSize: 40,
