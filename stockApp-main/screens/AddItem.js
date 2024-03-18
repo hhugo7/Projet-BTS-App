@@ -1,7 +1,8 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import React, { useState } from 'react';
 import ImagePicker from 'react-native-image-picker';
+import TableItem from '../component/TableItem';
 const ItemImage = './assets/SneakHubLogo.PNG';
 
 
@@ -29,17 +30,6 @@ export default function AddItem() {
     { id: 2, name: 'Item 2', price: 25.50 },
   ];
     
-  const Table = () => {
-    const [tableData, setTableData] = useState(data);
-  
-    const renderItem = ({ item }) => (
-      <View style={styles.row}>
-        <Text style={styles.text}>{item.name}</Text>
-        <Text style={styles.text}>${item.price.toFixed(2)}</Text>
-      </View>
-    );
-  
-
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response:', response);
       if (response.didCancel) {
@@ -52,9 +42,9 @@ export default function AddItem() {
       }
     });
   };
-};
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={HandleNavigate} style={styles.logout}>
@@ -82,6 +72,14 @@ export default function AddItem() {
           placeholder="Color"
           style={styles.input}
         />
+         <TextInput
+          placeholder="Size"
+          style={styles.input}
+        />
+         <TextInput
+          placeholder="Stock"
+          style={styles.input}
+        />
         <TextInput
           placeholder="Price"
           style={styles.input}
@@ -97,6 +95,7 @@ export default function AddItem() {
         </TouchableOpacity>
       </View>
     </View>
+    </ ScrollView>
   );
 }
 
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   container: {
-    flex: 1,
+    flexShrink: 1,
   },
   header: {
     color: 'black',
@@ -175,7 +174,7 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 40,
     marginRight: 10,
-},
+  },
   text: {
     fontSize: 17,
   },
