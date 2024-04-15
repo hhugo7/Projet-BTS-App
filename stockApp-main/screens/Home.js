@@ -14,6 +14,11 @@ export default function Home() {
     console.log('Add Item')
   }
 
+  HandleNavigate1 = () => {
+    navigation.replace('Stock')
+    console.log('Stock')
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -31,7 +36,7 @@ export default function Home() {
           <EuroOutlined style={styles.icon} />
           <Text style={styles.text}>Total Value : </Text>
         </View>
-        <TouchableOpacity style={styles.logout}>
+        <TouchableOpacity onPress={HandleNavigate1} style={styles.logout}>
           <Text>Check Stock</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.logout}>

@@ -12,11 +12,19 @@ const TableItem = () => {
     return (
         <View>
             <View style={styles.row}>
+                <Text style={styles.text}>Serial Number</Text>
+                <Text style={styles.text}>Color</Text>
                 <Text style={styles.text}>Size</Text>
+                <Text style={styles.text}>Brand</Text>
+                <Text style={styles.text}>Price</Text>
                 <Text style={styles.text}>Stock</Text>
             </View>
             {tableData.map((item, index) => (
                 <View key={index} style={styles.row}>
+                    <Text style={styles.text}>{item.name}</Text>
+                    <Text style={styles.text}>${item.price.toFixed(2)}</Text>
+                    <Text style={styles.text}>{item.name}</Text>
+                    <Text style={styles.text}>${item.price.toFixed(2)}</Text>
                     <Text style={styles.text}>{item.name}</Text>
                     <Text style={styles.text}>${item.price.toFixed(2)}</Text>
                 </View>
