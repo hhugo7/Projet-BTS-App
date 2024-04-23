@@ -12,13 +12,13 @@ const TableItem = () => {
     return (
         <View>
             <View style={styles.row}>
-                <Text style={styles.text}>Serial Number</Text>
-                <Text style={styles.text}>Name</Text>
-                <Text style={styles.text}>Color</Text>
-                <Text style={styles.text}>Size</Text>
-                <Text style={styles.text}>Brand</Text>
-                <Text style={styles.text}>Price</Text>
-                <Text style={styles.text}>Stock</Text>
+                <Text style={styles.textT}>Serial Number</Text>
+                <Text style={styles.textT}>Name</Text>
+                <Text style={styles.textT}>Color</Text>
+                <Text style={styles.textT}>Size</Text>
+                <Text style={styles.textT}>Brand</Text>
+                <Text style={styles.textT}>Price</Text>
+                <Text style={styles.textT}>Stock</Text>
             </View>
             {tableData.map((item, index) => (
                 <View key={index} style={styles.row}>
@@ -58,6 +58,13 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#333',
     },
+
+    textT: {
+        fontWeight: 'bold',
+        fontSize: 14,
+        color: '#333',
+    },
+    
 });
 
 export default TableItem;

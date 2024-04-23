@@ -16,7 +16,7 @@ export default function AddItem() {
     return (
         <View>
             <TouchableOpacity onPress={() => HandleNavigate('Home')} style={styles.logout}>
-            <Text>Cancel</Text>
+            <Text style={styles.cancel}>Cancel</Text>
             </TouchableOpacity>
             <View>
                 <RollbackOutlined style={styles.icon} onPress={HandleNavigate}/>
@@ -88,11 +88,19 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
 
+    cancel: {
+        flex: 1, 
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
     inputview: {
+        flex: 1, 
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 30,
         marginBottom: 40,
-        display: 'inline',
-        width: 'fit-content',
+        display: 'inline-flex',
     },
 
     input: 
