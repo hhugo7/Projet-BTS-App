@@ -15,6 +15,9 @@ export default function AddItem() {
 
     return (
         <View>
+            <TouchableOpacity onPress={() => HandleNavigate('Home')} style={styles.logout}>
+            <Text>Cancel</Text>
+            </TouchableOpacity>
             <View>
                 <RollbackOutlined style={styles.icon} onPress={HandleNavigate}/>
             </View>
@@ -36,14 +39,46 @@ export default function AddItem() {
                   placeholder="Marque"
                   style={styles.input}
                 />
+                <TextInput
+                  placeholder="Prix"
+                  style={styles.input}
+                />
+                <TextInput
+                  placeholder="Quantité"
+                  style={styles.input}
+                />
+                <TextInput
+                  placeholder="Nom du produit"
+                  style={styles.input}
+                />
             </View>     
-
             <TableItem />    
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    logout: {
+        color: 'black',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 6,
+        color: '#3D3D3D',
+        backgroundColor: '#fff',
+        borderWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0.5 },
+        shadowOpacity: 0.1,
+        shadowRadius: 1,
+        userSelect: 'none',
+        marginLeft: auto,
+        marginRight: auto,
+        textAlign: center,
+        width: 200,
+        margin: 20,
+      },
 
     dashbord: {
         fontSize: 30,
@@ -67,21 +102,27 @@ const styles = StyleSheet.create({
 
     input: 
     {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
         height: 5,
         borderRadius: 6,
-        color: '#ECECEC',
-        backgroundColor: '#9E9E9E',
+        color: '#000000',
+        backgroundColor: '#FFFFFF',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 0.5 },
         shadowOpacity: 0.1,
         shadowRadius: 1,
         width: 170,
+        height: 40,
         padding: 10,
         marginLeft: 'auto',
         marginRight: 'auto',
         marginRight: 20,
+        marginLeft: 20,
         margin: 7   ,
-        fontSize: 10,
+        fontSize: 15,
+        textAlign: 'center',
       },
       
 });

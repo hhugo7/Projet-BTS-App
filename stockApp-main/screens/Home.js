@@ -9,14 +9,9 @@ export default function Home() {
 
   const navigation = useNavigation()
 
-  HandleNavigate = () => {
-    navigation.replace('AddItem')
-    console.log('Add Item')
-  }
-
-  HandleNavigate1 = () => {
-    navigation.replace('Stock')
-    console.log('Stock')
+  HandleNavigate = (path) => {
+    navigation.replace(path)
+    console.log(path)
   }
 
   return (
@@ -36,16 +31,13 @@ export default function Home() {
           <EuroOutlined style={styles.icon} />
           <Text style={styles.text}>Total Value : </Text>
         </View>
-        <TouchableOpacity onPress={HandleNavigate1} style={styles.logout}>
+        <TouchableOpacity onPress={() => HandleNavigate('Stock')} style={styles.logout}>
           <Text>Check Stock</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.logout}>
+        <TouchableOpacity onPress={() => HandleNavigate('EditItem')} style={styles.logout}>
           <Text>Edit Items</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.logout}>
-          <Text>Delete Items</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={HandleNavigate}  style={styles.logout}>
+        <TouchableOpacity onPress={() => HandleNavigate('AddItem')}  style={styles.logout}>
           <Text>Add Items</Text>
         </TouchableOpacity>
       </View>

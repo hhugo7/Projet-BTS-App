@@ -6,6 +6,7 @@ import Login from './screens/Login';
 import Home from './screens/Home';
 import AddItem from './screens/AddItem';
 import Stock from './screens/Stock';  
+import EditItem from './screens/EditItem';
 
 const Logo = './assets/SneakHubLogo.PNG';
 
@@ -33,6 +34,11 @@ export default function App() {
         <Stack.Screen 
           name="Stock" 
           component={Stock} 
+          options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
+        />
+        <Stack.Screen 
+          name="EditItem" 
+          component={EditItem} 
           options={{headerTitle: props => <Image source={Logo} style={{ width: 100, height: 55}} />}} 
         />
       </Stack.Navigator>
