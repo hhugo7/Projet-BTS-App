@@ -73,9 +73,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 1,
         userSelect: 'none',
-        marginLeft: auto,
-        marginRight: auto,
-        textAlign: center,
         width: 200,
         margin: 20,
       },
@@ -96,8 +93,6 @@ const styles = StyleSheet.create({
         marginBottom: 40,
         display: 'inline',
         width: 'fit-content',
-        marginRight: 'auto',
-        marginLeft: 'auto',
     },
 
     input: 
@@ -116,8 +111,6 @@ const styles = StyleSheet.create({
         width: 170,
         height: 40,
         padding: 10,
-        marginLeft: 'auto',
-        marginRight: 'auto',
         marginRight: 20,
         marginLeft: 20,
         margin: 7   ,
