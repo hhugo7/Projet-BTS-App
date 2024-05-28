@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+
 const TableItem = () => {
     const data = [
         { name: 'Item 1', price: 10.99, stock: 10, serialNumber: '123456', color: 'Black', size: '42', brand: 'Nike'},
